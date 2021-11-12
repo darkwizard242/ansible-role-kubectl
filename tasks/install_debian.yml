@@ -1,0 +1,8 @@
+---
+# tasks file for kubectl | Debian/Ubuntu Family
+
+- name: Debian/Ubuntu Family | Downloading archive for {{ kubectl_app }} {{ kubectl_version }} to {{ kubectl_bin_path }}
+  get_url:
+    url: "{{ kubectl_dl_url }}"
+    dest: "{{ kubectl_bin_path }}/{{ kubectl_app }}"
+    mode: "{{ kubectl_file_mode }}"

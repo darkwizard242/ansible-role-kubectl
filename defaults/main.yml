@@ -1,0 +1,10 @@
+---
+# defaults file for kubectl
+
+kubectl_app: kubectl
+kubectl_version: 1.22.3
+kubectl_os: linux
+kubectl_arch: amd64
+kubectl_dl_url: https://dl.k8s.io/release/v{{ kubectl_version }}/bin/{{ kubectl_os }}/{{ kubectl_arch }}/{{ kubectl_app }}
+kubectl_bin_path: /usr/local/bin
+kubectl_file_mode: '0755'
