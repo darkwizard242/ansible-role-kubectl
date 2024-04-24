@@ -16,7 +16,7 @@ Available variables are listed below (located in `defaults/main.yml`):
 
 ```yaml
 kubectl_app: kubectl
-kubectl_version: 1.27.4
+kubectl_version: 1.30.0
 kubectl_os: linux
 kubectl_arch: amd64
 kubectl_dl_url: https://dl.k8s.io/release/v{{ kubectl_version }}/bin/{{ kubectl_os }}/{{ kubectl_arch }}/{{ kubectl_app }}
@@ -29,7 +29,7 @@ kubectl_file_mode: '0755'
 Variable          | Description
 ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------
 kubectl_app       | Defines the app to install i.e. **kubectl**
-kubectl_version   | Defined to dynamically fetch the desired version to install. Defaults to: **1.27.4**
+kubectl_version   | Defined to dynamically fetch the desired version to install. Defaults to: **1.30.0**
 kubectl_os        | Defines OS type. Defaults to: **linux**
 kubectl_arch      | Defines os architecture. Used for obtaining the correct type of binaries based on OS System Architecture. Defaults to: **amd64**
 kubectl_dl_url    | Defines URL to download the kubectl binary from.
