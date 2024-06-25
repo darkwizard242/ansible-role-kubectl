@@ -27,7 +27,7 @@ kubectl_architecture_map:
   aarch64: arm64
   32-bit: "386"
   64-bit: amd64
-kubectl_dl_url: "https://dl.k8s.io/release/v{{ kubectl_version }}/bin/{{ kubectl_os }}/{{ kubeadm_architecture_map[ansible_architecture] }}/{{ kubectl_app }}"
+kubectl_dl_url: "https://dl.k8s.io/release/v{{ kubectl_version }}/bin/{{ kubectl_os }}/{{ kubectl_architecture_map[ansible_architecture] }}/{{ kubectl_app }}"
 kubectl_bin_path: /usr/local/bin
 kubectl_file_mode: '0755'
 ```
