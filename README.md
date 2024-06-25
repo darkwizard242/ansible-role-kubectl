@@ -17,24 +17,32 @@ Available variables are listed below (located in `defaults/main.yml`):
 ```yaml
 kubectl_app: kubectl
 kubectl_version: 1.30.2
-kubectl_os: linux
-kubectl_arch: amd64
-kubectl_dl_url: https://dl.k8s.io/release/v{{ kubectl_version }}/bin/{{ kubectl_os }}/{{ kubectl_arch }}/{{ kubectl_app }}
+kubectl_os: "{{ ansible_system | lower }}"
+kubectl_architecture_map:
+  amd64: amd64
+  arm: arm64
+  x86_64: amd64
+  armv6l: armv6
+  armv7l: armv7
+  aarch64: arm64
+  32-bit: "386"
+  64-bit: amd64
+kubectl_dl_url: "https://dl.k8s.io/release/v{{ kubectl_version }}/bin/{{ kubectl_os }}/{{ kubectl_architecture_map[ansible_architecture] }}/{{ kubectl_app }}"
 kubectl_bin_path: /usr/local/bin
 kubectl_file_mode: '0755'
 ```
 
 ### Variables table:
 
-Variable          | Description
------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------
-kubectl_app       | Defines the app to install i.e. **kubectl**
-kubectl_version   | Defined to dynamically fetch the desired version to install. Defaults to: **1.30.2**
-kubectl_os        | Defines OS type. Defaults to: **linux**
-kubectl_arch      | Defines os architecture. Used for obtaining the correct type of binaries based on OS System Architecture. Defaults to: **amd64**
-kubectl_dl_url    | Defines URL to download the kubectl binary from.
-kubectl_bin_path  | Defined to dynamically set the appropriate path to store kubectl binary into. Defaults to (as generally available on any user's PATH): **/usr/local/bin**
-kubectl_file_mode | Mode for the binary file of kubectl.
+Variable                 | Description
+------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------
+kubectl_app              | Defines the app to install i.e. **kubectl**
+kubectl_version          | Defined to dynamically fetch the desired version to install. Defaults to: **1.30.2**
+kubectl_os               | Defines OS type.
+kubectl_architecture_map | Defines os architecture. Used for obtaining the correct type of binaries based on OS System Architecture.
+kubectl_dl_url           | Defines URL to download the kubectl binary from.
+kubectl_bin_path         | Defined to dynamically set the appropriate path to store kubectl binary into. Defaults to (as generally available on any user's PATH): **/usr/local/bin**
+kubectl_file_mode        | Mode for the binary file of kubectl.
 
 ## Dependencies
 
