@@ -16,7 +16,7 @@ Available variables are listed below (located in `defaults/main.yml`):
 
 ```yaml
 kubectl_app: kubectl
-kubectl_version: 1.31.2
+kubectl_version: 1.31.3
 kubectl_os: "{{ ansible_system | lower }}"
 kubectl_architecture_map:
   amd64: amd64
@@ -37,7 +37,7 @@ kubectl_file_mode: '0755'
 Variable                 | Description
 ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------
 kubectl_app              | Defines the app to install i.e. **kubectl**
-kubectl_version          | Defined to dynamically fetch the desired version to install. Defaults to: **1.31.2**
+kubectl_version          | Defined to dynamically fetch the desired version to install. Defaults to: **1.31.3**
 kubectl_os               | Defines OS type.
 kubectl_architecture_map | Defines os architecture. Used for obtaining the correct type of binaries based on OS System Architecture.
 kubectl_dl_url           | Defines URL to download the kubectl binary from.
